@@ -1,12 +1,5 @@
-## Hi there 👋
+## brain dump
 
-<!--
-**dangreig/dangreig** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+A small GitHub Pages site for dgreig's writing and reading notes.
 
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on a blog
-- 🌱 I’m currently learning
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-
+The live site is built from `index.html` with GitHub Pages configuration in `_config.yml`.

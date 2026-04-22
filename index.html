@@ -3,84 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Greig - Exploring a variety of topics one article at a time</title>
+    <title>dgreig - brain dump</title>
     <style>
+        :root {
+            --background: #f7f5ef;
+            --surface: #fffdf8;
+            --ink: #20211f;
+            --muted: #67645e;
+            --rule: #dfd8ca;
+            --accent: #4b6f69;
+            --accent-strong: #243f3b;
+            --highlight: #c8704f;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
+            background:
+                linear-gradient(180deg, rgba(255, 253, 248, 0.72), rgba(247, 245, 239, 0.92)),
+                var(--background);
+            color: var(--ink);
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.7;
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
+
+        a {
+            color: var(--accent-strong);
+            text-decoration-color: rgba(75, 111, 105, 0.38);
+            text-underline-offset: 0.2em;
         }
+
+        a:hover {
+            color: var(--highlight);
+            text-decoration-color: currentColor;
+        }
+
+        .site-header {
+            border-bottom: 1px solid var(--rule);
+            background: rgba(255, 253, 248, 0.84);
+        }
+
+        .masthead {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 32px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            margin: 0;
+            font-size: clamp(2rem, 5vw, 4.6rem);
+            line-height: 0.95;
+            font-weight: 500;
+            letter-spacing: 0;
+        }
+
+        .tagline {
+            margin: 12px 0 0;
+            max-width: 540px;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
         nav {
-            margin: 20px 0;
-            text-align: center;
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
+
         nav a {
-            margin: 0 15px;
             text-decoration: none;
-            color: #333;
-            font-weight: bold;
         }
-        section {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        main {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 56px 24px 72px;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 280px;
+            gap: 64px;
+            align-items: start;
         }
+
+        .section-kicker {
+            margin: 0 0 10px;
+            color: var(--highlight);
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
         h2 {
-            color: #333;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
+            margin: 0 0 24px;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            line-height: 1.1;
+            font-weight: 500;
         }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+
+        .post-list {
+            display: grid;
+            gap: 18px;
+        }
+
+        .post-card {
+            padding: 24px 0;
+            border-top: 1px solid var(--rule);
+        }
+
+        .post-card:last-child {
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .post-meta {
+            margin: 0 0 8px;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.86rem;
+        }
+
+        .post-card h3 {
+            margin: 0 0 10px;
+            font-size: clamp(1.35rem, 2vw, 1.8rem);
+            line-height: 1.2;
+            font-weight: 500;
+        }
+
+        .post-card p {
+            max-width: 680px;
+            margin: 0;
+            color: #3a3a37;
+            font-size: 1.05rem;
+        }
+
+        .post-card.draft h3 {
+            color: var(--muted);
+        }
+
+        .sidebar {
+            display: grid;
+            gap: 32px;
+            position: sticky;
+            top: 24px;
+        }
+
+        .note {
+            padding-top: 18px;
+            border-top: 3px solid var(--accent);
+        }
+
+        .note h2 {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            font-family: Arial, sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .note p,
+        .note li {
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.96rem;
+            line-height: 1.6;
+        }
+
+        .note ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        @media (max-width: 780px) {
+            .masthead {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            main {
+                grid-template-columns: 1fr;
+                gap: 44px;
+                padding-top: 40px;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            nav {
+                gap: 14px;
+            }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Daniel Greig</h1>
-    <p>Exploring a variety of topics one article at a time</p>
+<header class="site-header">
+    <div class="masthead">
+        <div>
+            <h1 class="brand">brain dump</h1>
+            <p class="tagline">Thoughts, notes, and essays from dgreig. Exploring a variety of topics one article at a time.</p>
+        </div>
+        <nav aria-label="Primary navigation">
+            <a href="#posts">Posts</a>
+            <a href="#about">About</a>
+            <a href="#reading-list">Reading</a>
+        </nav>
+    </div>
 </header>
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#blog">Blog</a>
-    <a href="#Reading List">Reading List</a>
-</nav>
+<main>
+    <section id="posts" aria-labelledby="posts-title">
+        <p class="section-kicker">Latest Writing</p>
+        <h2 id="posts-title">A place for readable, unrushed ideas.</h2>
 
-<section id="about">
-    <h2>About Me</h2>
-    <p>Write a short bio about yourself here. You can include your background, interests, and any other information you'd like to share.</p>
-</section>
+        <div class="post-list">
+            <article class="post-card draft">
+                <p class="post-meta">Coming soon</p>
+                <h3>First post title</h3>
+                <p>Add a short summary here. Keep it to one or two sentences so the page stays easy to scan while still giving each piece room to breathe.</p>
+            </article>
 
-<section id="blog">
-    <h2>Blog</h2>
-    <p>Future topics include: </p>
-</section>
+            <article class="post-card draft">
+                <p class="post-meta">Reading note</p>
+                <h3>On Tolerance</h3>
+                <p>A future note on Frank Furedi's <em>On Tolerance</em>, with space for a concise reflection and links to supporting material.</p>
+            </article>
+        </div>
+    </section>
 
-<section id="Reading List">
-    <h2>Reading List</h2>
-    <p>On Tolerance - Frank Furedi</p> <a href="https://m.media-amazon.com/images/I/91XDvF2uaHL._AC_UF894,1000_QL80_.jpg" >Cover</a>
-    <br>
-</section>
+    <aside class="sidebar">
+        <section id="about" class="note" aria-labelledby="about-title">
+            <h2 id="about-title">About</h2>
+            <p>brain dump is a personal site for short reflections, reading notes, and article ideas.</p>
+        </section>
 
-<br>
+        <section id="reading-list" class="note" aria-labelledby="reading-title">
+            <h2 id="reading-title">Reading List</h2>
+            <ul>
+                <li><em>On Tolerance</em> - Frank Furedi <a href="https://m.media-amazon.com/images/I/91XDvF2uaHL._AC_UF894,1000_QL80_.jpg">Cover</a></li>
+            </ul>
+        </section>
+    </aside>
+</main>
 
 </body>
 </html>
