@@ -6,14 +6,14 @@
     <title>dgreig - brain dump</title>
     <style>
         :root {
-            --background: #f7f5ef;
-            --surface: #fffdf8;
-            --ink: #20211f;
-            --muted: #67645e;
-            --rule: #dfd8ca;
-            --accent: #4b6f69;
-            --accent-strong: #243f3b;
-            --highlight: #c8704f;
+            --background: #f4f1ea;
+            --surface: #f8f5ef;
+            --ink: #171717;
+            --muted: #6b685f;
+            --rule: #d9d1c3;
+            --accent: #2f4a45;
+            --accent-strong: #1f312d;
+            --highlight: #7a6a52;
         }
 
         * {
@@ -26,9 +26,7 @@
 
         body {
             margin: 0;
-            background:
-                linear-gradient(180deg, rgba(255, 253, 248, 0.72), rgba(247, 245, 239, 0.92)),
-                var(--background);
+            background: var(--background);
             color: var(--ink);
             font-family: Georgia, "Times New Roman", serif;
             line-height: 1.7;
@@ -47,13 +45,13 @@
 
         .site-header {
             border-bottom: 1px solid var(--rule);
-            background: rgba(255, 253, 248, 0.84);
+            background: transparent;
         }
 
         .masthead {
-            max-width: 1120px;
+            max-width: 980px;
             margin: 0 auto;
-            padding: 32px 24px;
+            padding: 28px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -62,18 +60,18 @@
 
         .brand {
             margin: 0;
-            font-size: clamp(2rem, 5vw, 4.6rem);
-            line-height: 0.95;
-            font-weight: 500;
+            font-size: clamp(2rem, 5vw, 4.2rem);
+            line-height: 1;
+            font-weight: 400;
             letter-spacing: 0;
         }
 
         .tagline {
             margin: 12px 0 0;
-            max-width: 540px;
+            max-width: 500px;
             color: var(--muted);
             font-family: Arial, sans-serif;
-            font-size: 1rem;
+            font-size: 0.96rem;
             line-height: 1.5;
         }
 
@@ -93,12 +91,12 @@
         }
 
         main {
-            max-width: 1120px;
+            max-width: 980px;
             margin: 0 auto;
-            padding: 56px 24px 72px;
+            padding: 52px 24px 72px;
             display: grid;
-            grid-template-columns: minmax(0, 1fr) 280px;
-            gap: 64px;
+            grid-template-columns: minmax(0, 1fr) 240px;
+            gap: 56px;
             align-items: start;
         }
 
@@ -106,9 +104,9 @@
             margin: 0 0 10px;
             color: var(--highlight);
             font-family: Arial, sans-serif;
-            font-size: 0.78rem;
+            font-size: 0.74rem;
             font-weight: 700;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
         }
 
@@ -121,11 +119,11 @@
 
         .post-list {
             display: grid;
-            gap: 18px;
+            gap: 8px;
         }
 
         .post-card {
-            padding: 24px 0;
+            padding: 22px 0;
             border-top: 1px solid var(--rule);
         }
 
@@ -137,7 +135,7 @@
             margin: 0 0 8px;
             color: var(--muted);
             font-family: Arial, sans-serif;
-            font-size: 0.86rem;
+            font-size: 0.8rem;
         }
 
         .post-card h3 {
@@ -148,10 +146,10 @@
         }
 
         .post-card p {
-            max-width: 680px;
+            max-width: 640px;
             margin: 0;
-            color: #3a3a37;
-            font-size: 1.05rem;
+            color: #34332f;
+            font-size: 1rem;
         }
 
         .post-card.draft h3 {
@@ -160,22 +158,22 @@
 
         .sidebar {
             display: grid;
-            gap: 32px;
+            gap: 28px;
             position: sticky;
             top: 24px;
         }
 
         .note {
-            padding-top: 18px;
-            border-top: 3px solid var(--accent);
+            padding-top: 14px;
+            border-top: 1px solid var(--rule);
         }
 
         .note h2 {
             margin-bottom: 12px;
-            font-size: 1.1rem;
+            font-size: 0.92rem;
             font-family: Arial, sans-serif;
             font-weight: 700;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
@@ -183,7 +181,7 @@
         .note li {
             color: var(--muted);
             font-family: Arial, sans-serif;
-            font-size: 0.96rem;
+            font-size: 0.92rem;
             line-height: 1.6;
         }
 
@@ -259,7 +257,8 @@
         <section id="reading-list" class="note" aria-labelledby="reading-title">
             <h2 id="reading-title">Reading List</h2>
             <ul>
-                <li><em>On Tolerance</em> - Frank Furedi <a href="https://m.media-amazon.com/images/I/91XDvF2uaHL._AC_UF894,1000_QL80_.jpg">Cover</a></li>
+                <li><em>East of Eden</em> - John Steinbeck</li>
+                <li><em>Cryptonomicon</em> - Neal Stephenson</li>
             </ul>
         </section>
     </aside>
