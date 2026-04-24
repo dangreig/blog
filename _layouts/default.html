@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}dgreig</title>
+    <style>
+        :root {
+            --background: #f4f1ea;
+            --ink: #29443a;
+            --muted: #4b665a;
+            --rule: #d7d0c4;
+            --link: #31574c;
+            --hookers-green: #3b5f4a;
+            --hookers-green-deep: #29443a;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--background);
+            color: var(--ink);
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--hookers-green-deep);
+            text-decoration: underline;
+            text-decoration-color: rgba(41, 68, 58, 0.45);
+            text-underline-offset: 0.18em;
+        }
+
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 28px 24px 72px;
+        }
+
+        .site-header {
+            padding: 8px 0 34px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .brand {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3.6rem);
+            font-weight: 400;
+            line-height: 1;
+            color: var(--hookers-green-deep);
+        }
+
+        .brand a {
+            color: inherit;
+        }
+
+        .tagline {
+            max-width: 540px;
+            margin: 10px 0 0;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        section {
+            padding-top: 34px;
+        }
+
+        .section-label {
+            margin: 0 0 16px;
+            color: var(--hookers-green);
+            font-family: Arial, sans-serif;
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .archive-list {
+            border-top: 1px solid var(--rule);
+        }
+
+        .archive-entry {
+            display: grid;
+            grid-template-columns: 110px minmax(0, 1fr);
+            gap: 18px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .archive-date {
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.84rem;
+            white-space: nowrap;
+        }
+
+        .archive-entry h2 {
+            margin: 0 0 4px;
+            font-size: 1.38rem;
+            font-weight: 400;
+            line-height: 1.25;
+        }
+
+        .archive-entry h2 a {
+            color: var(--hookers-green-deep);
+        }
+
+        .archive-entry p {
+            margin: 0;
+            color: var(--ink);
+            font-size: 1rem;
+        }
+
+        .secondary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+            padding-top: 40px;
+        }
+
+        .secondary section {
+            padding-top: 0;
+        }
+
+        .secondary p,
+        .secondary li {
+            margin: 0;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.94rem;
+            line-height: 1.65;
+        }
+
+        .reading-list {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .post-header {
+            padding-top: 34px;
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 18px;
+        }
+
+        .post-date {
+            margin: 0 0 12px;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.84rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .post-title {
+            margin: 0;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 400;
+            line-height: 1.08;
+        }
+
+        .post-summary {
+            margin: 14px 0 0;
+            max-width: 620px;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .post-content {
+            padding-top: 28px;
+            font-size: 1.08rem;
+        }
+
+        .post-content h2,
+        .post-content h3 {
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+            line-height: 1.2;
+            font-weight: 500;
+        }
+
+        .post-content p,
+        .post-content ul,
+        .post-content ol,
+        .post-content blockquote {
+            margin: 0 0 1.1em;
+        }
+
+        .post-content blockquote {
+            margin-left: 0;
+            padding-left: 16px;
+            border-left: 2px solid var(--rule);
+            color: var(--muted);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 32px;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                padding-top: 22px;
+            }
+
+            .archive-entry {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+
+            .secondary {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header class="site-header">
+            <h1 class="brand"><a href="{{ '/' | relative_url }}">brain dump</a></h1>
+            <p class="tagline">Thoughts, notes, and essays from dgreig. A quiet archive for posts, reading notes, and unfinished ideas worth keeping.</p>
+            <nav aria-label="Primary navigation">
+                <a href="{{ '/' | relative_url }}#archive">Archive</a>
+                <a href="{{ '/' | relative_url }}#about">About</a>
+                <a href="{{ '/' | relative_url }}#reading-list">Reading</a>
+            </nav>
+        </header>
+
+        <main>
+            {{ content }}
+        </main>
+    </div>
+</body>
+</html>

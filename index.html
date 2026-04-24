@@ -1,230 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dgreig - brain dump</title>
-    <style>
-        :root {
-            --background: #f4f1ea;
-            --ink: #29443a;
-            --muted: #4b665a;
-            --rule: #d7d0c4;
-            --link: #31574c;
-            --hookers-green: #3b5f4a;
-            --hookers-green-deep: #29443a;
-            --hookers-green-soft: #dbe4db;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            background: var(--background);
-            color: var(--ink);
-            font-family: Georgia, "Times New Roman", serif;
-            line-height: 1.7;
-        }
-
-        a {
-            color: var(--link);
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: var(--hookers-green-deep);
-            text-decoration: underline;
-            text-decoration-color: rgba(41, 68, 58, 0.45);
-            text-underline-offset: 0.18em;
-        }
-
-        .page {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 28px 24px 72px;
-        }
-
-        .site-header {
-            padding: 8px 0 34px;
-            border-bottom: 1px solid var(--rule);
-        }
-
-        .brand {
-            margin: 0;
-            font-size: clamp(2rem, 4vw, 3.6rem);
-            font-weight: 400;
-            line-height: 1;
-            color: var(--hookers-green-deep);
-        }
-
-        .tagline {
-            max-width: 540px;
-            margin: 10px 0 0;
-            color: var(--muted);
-            font-family: Arial, sans-serif;
-            font-size: 0.95rem;
-            line-height: 1.55;
-        }
-
-        nav {
-            display: flex;
-            gap: 18px;
-            margin-top: 20px;
-            font-family: Arial, sans-serif;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        section {
-            padding-top: 34px;
-        }
-
-        .section-label {
-            margin: 0 0 16px;
-            color: var(--hookers-green);
-            font-family: Arial, sans-serif;
-            font-size: 0.74rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-
-        .archive-list {
-            border-top: 1px solid var(--rule);
-        }
-
-        .archive-entry {
-            display: grid;
-            grid-template-columns: 110px minmax(0, 1fr);
-            gap: 18px;
-            padding: 18px 0;
-            border-bottom: 1px solid var(--rule);
-        }
-
-        .archive-date {
-            color: var(--muted);
-            font-family: Arial, sans-serif;
-            font-size: 0.84rem;
-            white-space: nowrap;
-        }
-
-        .archive-entry h2 {
-            margin: 0 0 4px;
-            font-size: 1.38rem;
-            font-weight: 400;
-            line-height: 1.25;
-        }
-
-        .archive-entry h2 a {
-            color: var(--hookers-green-deep);
-        }
-
-        .archive-entry p {
-            margin: 0;
-            color: var(--ink);
-            font-size: 1rem;
-        }
-
-        .secondary {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 36px;
-            padding-top: 40px;
-        }
-
-        .secondary section {
-            padding-top: 0;
-        }
-
-        .secondary p,
-        .secondary li {
-            margin: 0;
-            color: var(--muted);
-            font-family: Arial, sans-serif;
-            font-size: 0.94rem;
-            line-height: 1.65;
-        }
-
-        .reading-list {
-            margin: 0;
-            padding-left: 18px;
-        }
-
-        @media (max-width: 640px) {
-            .page {
-                padding-top: 22px;
-            }
-
-            .archive-entry {
-                grid-template-columns: 1fr;
-                gap: 6px;
-            }
-
-            .secondary {
-                grid-template-columns: 1fr;
-                gap: 28px;
-            }
-
-            nav {
-                flex-wrap: wrap;
-                gap: 14px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="page">
-        <header class="site-header">
-            <h1 class="brand">brain dump</h1>
-            <p class="tagline">Thoughts, notes, and essays from dgreig. A quiet archive for posts, reading notes, and unfinished ideas worth keeping.</p>
-            <nav aria-label="Primary navigation">
-                <a href="#archive">Archive</a>
-                <a href="#about">About</a>
-                <a href="#reading-list">Reading</a>
-            </nav>
-        </header>
-
-        <main>
-            <section id="archive" aria-labelledby="archive-title">
-                <p class="section-label">Archive</p>
-                <div class="archive-list">
-                    <article class="archive-entry">
-                        <p class="archive-date">Apr 2026</p>
-                        <div>
-                            <h2 id="archive-title"><a href="#archive">First post title</a></h2>
-                            <p>A placeholder for a full post. Keep summaries brief so the homepage stays lean and easy to scan.</p>
-                        </div>
-                    </article>
-
-                    <article class="archive-entry">
-                        <p class="archive-date">Apr 2026</p>
-                        <div>
-                            <h2><a href="#archive">Reading note: East of Eden</a></h2>
-                            <p>Space for a concise note, quote, or reaction without turning the archive into a wall of text.</p>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <div class="secondary">
-                <section id="about" aria-labelledby="about-title">
-                    <p class="section-label" id="about-title">About</p>
-                    <p>brain dump is a personal blog for short reflections, reading notes, and article ideas.</p>
-                </section>
-
-                <section id="reading-list" aria-labelledby="reading-title">
-                    <p class="section-label" id="reading-title">Reading List</p>
-                    <ul class="reading-list">
-                        <li><em>East of Eden</em> - John Steinbeck</li>
-                        <li><em>Cryptonomicon</em> - Neal Stephenson</li>
-                    </ul>
-                </section>
+---
+layout: default
+title: brain dump
+---
+<section id="archive" aria-labelledby="archive-title">
+    <p class="section-label">Archive</p>
+    <div class="archive-list">
+        {% for post in site.posts %}
+        <article class="archive-entry">
+            <p class="archive-date">{{ post.date | date: "%b %Y" }}</p>
+            <div>
+                <h2{% if forloop.first %} id="archive-title"{% endif %}><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+                <p>{{ post.summary | default: post.excerpt | strip_html | strip_newlines }}</p>
             </div>
-        </main>
+        </article>
+        {% endfor %}
     </div>
-</body>
-</html>
+</section>
+
+<div class="secondary">
+    <section id="about" aria-labelledby="about-title">
+        <p class="section-label" id="about-title">About</p>
+        <p>brain dump is a personal blog for short reflections, reading notes, and article ideas.</p>
+    </section>
+
+    <section id="reading-list" aria-labelledby="reading-title">
+        <p class="section-label" id="reading-title">Reading List</p>
+        <ul class="reading-list">
+            <li><em>East of Eden</em> - John Steinbeck</li>
+            <li><em>Cryptonomicon</em> - Neal Stephenson</li>
+        </ul>
+    </section>
+</div>
