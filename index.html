@@ -7,21 +7,17 @@
     <style>
         :root {
             --background: #f4f1ea;
-            --surface: #f8f5ef;
-            --ink: #171717;
-            --muted: #6b685f;
-            --rule: #d9d1c3;
-            --accent: #2f4a45;
-            --accent-strong: #1f312d;
-            --highlight: #7a6a52;
+            --ink: #29443a;
+            --muted: #4b665a;
+            --rule: #d7d0c4;
+            --link: #31574c;
+            --hookers-green: #3b5f4a;
+            --hookers-green-deep: #29443a;
+            --hookers-green-soft: #dbe4db;
         }
 
         * {
             box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
@@ -33,76 +29,63 @@
         }
 
         a {
-            color: var(--accent-strong);
-            text-decoration-color: rgba(75, 111, 105, 0.38);
-            text-underline-offset: 0.2em;
+            color: var(--link);
+            text-decoration: none;
         }
 
         a:hover {
-            color: var(--highlight);
-            text-decoration-color: currentColor;
+            color: var(--hookers-green-deep);
+            text-decoration: underline;
+            text-decoration-color: rgba(41, 68, 58, 0.45);
+            text-underline-offset: 0.18em;
+        }
+
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 28px 24px 72px;
         }
 
         .site-header {
+            padding: 8px 0 34px;
             border-bottom: 1px solid var(--rule);
-            background: transparent;
-        }
-
-        .masthead {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 28px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
         }
 
         .brand {
             margin: 0;
-            font-size: clamp(2rem, 5vw, 4.2rem);
-            line-height: 1;
+            font-size: clamp(2rem, 4vw, 3.6rem);
             font-weight: 400;
-            letter-spacing: 0;
+            line-height: 1;
+            color: var(--hookers-green-deep);
         }
 
         .tagline {
-            margin: 12px 0 0;
-            max-width: 500px;
+            max-width: 540px;
+            margin: 10px 0 0;
             color: var(--muted);
             font-family: Arial, sans-serif;
-            font-size: 0.96rem;
-            line-height: 1.5;
+            font-size: 0.95rem;
+            line-height: 1.55;
         }
 
         nav {
             display: flex;
             gap: 18px;
-            flex-wrap: wrap;
+            margin-top: 20px;
             font-family: Arial, sans-serif;
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
-        nav a {
-            text-decoration: none;
+        section {
+            padding-top: 34px;
         }
 
-        main {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 52px 24px 72px;
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) 240px;
-            gap: 56px;
-            align-items: start;
-        }
-
-        .section-kicker {
-            margin: 0 0 10px;
-            color: var(--highlight);
+        .section-label {
+            margin: 0 0 16px;
+            color: var(--hookers-green);
             font-family: Arial, sans-serif;
             font-size: 0.74rem;
             font-weight: 700;
@@ -110,159 +93,138 @@
             text-transform: uppercase;
         }
 
-        h2 {
-            margin: 0 0 24px;
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
-            line-height: 1.1;
-            font-weight: 500;
-        }
-
-        .post-list {
-            display: grid;
-            gap: 8px;
-        }
-
-        .post-card {
-            padding: 22px 0;
+        .archive-list {
             border-top: 1px solid var(--rule);
         }
 
-        .post-card:last-child {
+        .archive-entry {
+            display: grid;
+            grid-template-columns: 110px minmax(0, 1fr);
+            gap: 18px;
+            padding: 18px 0;
             border-bottom: 1px solid var(--rule);
         }
 
-        .post-meta {
-            margin: 0 0 8px;
+        .archive-date {
             color: var(--muted);
             font-family: Arial, sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.84rem;
+            white-space: nowrap;
         }
 
-        .post-card h3 {
-            margin: 0 0 10px;
-            font-size: clamp(1.35rem, 2vw, 1.8rem);
-            line-height: 1.2;
-            font-weight: 500;
+        .archive-entry h2 {
+            margin: 0 0 4px;
+            font-size: 1.38rem;
+            font-weight: 400;
+            line-height: 1.25;
         }
 
-        .post-card p {
-            max-width: 640px;
+        .archive-entry h2 a {
+            color: var(--hookers-green-deep);
+        }
+
+        .archive-entry p {
             margin: 0;
-            color: #34332f;
+            color: var(--ink);
             font-size: 1rem;
         }
 
-        .post-card.draft h3 {
-            color: var(--muted);
-        }
-
-        .sidebar {
+        .secondary {
             display: grid;
-            gap: 28px;
-            position: sticky;
-            top: 24px;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+            padding-top: 40px;
         }
 
-        .note {
-            padding-top: 14px;
-            border-top: 1px solid var(--rule);
+        .secondary section {
+            padding-top: 0;
         }
 
-        .note h2 {
-            margin-bottom: 12px;
-            font-size: 0.92rem;
-            font-family: Arial, sans-serif;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .note p,
-        .note li {
+        .secondary p,
+        .secondary li {
+            margin: 0;
             color: var(--muted);
             font-family: Arial, sans-serif;
-            font-size: 0.92rem;
-            line-height: 1.6;
+            font-size: 0.94rem;
+            line-height: 1.65;
         }
 
-        .note ul {
+        .reading-list {
             margin: 0;
-            padding-left: 20px;
+            padding-left: 18px;
         }
 
-        @media (max-width: 780px) {
-            .masthead {
-                align-items: flex-start;
-                flex-direction: column;
+        @media (max-width: 640px) {
+            .page {
+                padding-top: 22px;
             }
 
-            main {
+            .archive-entry {
                 grid-template-columns: 1fr;
-                gap: 44px;
-                padding-top: 40px;
+                gap: 6px;
             }
 
-            .sidebar {
-                position: static;
+            .secondary {
+                grid-template-columns: 1fr;
+                gap: 28px;
             }
 
             nav {
+                flex-wrap: wrap;
                 gap: 14px;
             }
         }
     </style>
 </head>
 <body>
-
-<header class="site-header">
-    <div class="masthead">
-        <div>
+    <div class="page">
+        <header class="site-header">
             <h1 class="brand">brain dump</h1>
-            <p class="tagline">Thoughts, notes, and essays from dgreig. Exploring a variety of topics one article at a time.</p>
-        </div>
-        <nav aria-label="Primary navigation">
-            <a href="#posts">Posts</a>
-            <a href="#about">About</a>
-            <a href="#reading-list">Reading</a>
-        </nav>
+            <p class="tagline">Thoughts, notes, and essays from dgreig. A quiet archive for posts, reading notes, and unfinished ideas worth keeping.</p>
+            <nav aria-label="Primary navigation">
+                <a href="#archive">Archive</a>
+                <a href="#about">About</a>
+                <a href="#reading-list">Reading</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="archive" aria-labelledby="archive-title">
+                <p class="section-label">Archive</p>
+                <div class="archive-list">
+                    <article class="archive-entry">
+                        <p class="archive-date">Apr 2026</p>
+                        <div>
+                            <h2 id="archive-title"><a href="#archive">First post title</a></h2>
+                            <p>A placeholder for a full post. Keep summaries brief so the homepage stays lean and easy to scan.</p>
+                        </div>
+                    </article>
+
+                    <article class="archive-entry">
+                        <p class="archive-date">Apr 2026</p>
+                        <div>
+                            <h2><a href="#archive">Reading note: East of Eden</a></h2>
+                            <p>Space for a concise note, quote, or reaction without turning the archive into a wall of text.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <div class="secondary">
+                <section id="about" aria-labelledby="about-title">
+                    <p class="section-label" id="about-title">About</p>
+                    <p>brain dump is a personal blog for short reflections, reading notes, and article ideas.</p>
+                </section>
+
+                <section id="reading-list" aria-labelledby="reading-title">
+                    <p class="section-label" id="reading-title">Reading List</p>
+                    <ul class="reading-list">
+                        <li><em>East of Eden</em> - John Steinbeck</li>
+                        <li><em>Cryptonomicon</em> - Neal Stephenson</li>
+                    </ul>
+                </section>
+            </div>
+        </main>
     </div>
-</header>
-
-<main>
-    <section id="posts" aria-labelledby="posts-title">
-        <p class="section-kicker">Latest Writing</p>
-        <h2 id="posts-title">A place for readable, unrushed ideas.</h2>
-
-        <div class="post-list">
-            <article class="post-card draft">
-                <p class="post-meta">Coming soon</p>
-                <h3>First post title</h3>
-                <p>Add a short summary here. Keep it to one or two sentences so the page stays easy to scan while still giving each piece room to breathe.</p>
-            </article>
-
-            <article class="post-card draft">
-                <p class="post-meta">Reading note</p>
-                <h3>On Tolerance</h3>
-                <p>A future note on Frank Furedi's <em>On Tolerance</em>, with space for a concise reflection and links to supporting material.</p>
-            </article>
-        </div>
-    </section>
-
-    <aside class="sidebar">
-        <section id="about" class="note" aria-labelledby="about-title">
-            <h2 id="about-title">About</h2>
-            <p>brain dump is a personal site for short reflections, reading notes, and article ideas.</p>
-        </section>
-
-        <section id="reading-list" class="note" aria-labelledby="reading-title">
-            <h2 id="reading-title">Reading List</h2>
-            <ul>
-                <li><em>East of Eden</em> - John Steinbeck</li>
-                <li><em>Cryptonomicon</em> - Neal Stephenson</li>
-            </ul>
-        </section>
-    </aside>
-</main>
-
 </body>
 </html>
